@@ -57,4 +57,4 @@ class TelegraphHelper:
 			return self.edit_page(path, title, content)
 
 
-telegraph=TelegraphHelper('SpideyJr.', 'Credits: https://github.com/anasty17/mirror-leech-telegram-bot')
+telegraph=TelegraphHelper('Mirror-Leech-Telegram-Bot', 'https://github.com/anasty17/mirror-leech-telegram-bot')
