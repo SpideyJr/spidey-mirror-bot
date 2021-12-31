@@ -43,7 +43,7 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>Bot Uptime:</b> {currentTime}\n\n'\
+    stats = f'<b>Awake Since:</b> {currentTime}\n\n'\
             f'<b>Total Disk Space:</b> {total}\n'\
             f'<b>Used:</b> {used} | <b>Free:</b> {free}\n\n'\
             f'<b>Upload:</b> {sent}\n'\
@@ -62,17 +62,17 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
-    buttons.buildbutton("Report Group", "https://t.me/+MwgSi5vmQEA2N2Vk")
+    buttons.buildbutton("Group", "https://t.me/mirrorwithlove")
+    buttons.buildbutton("Helper", "https://t.me/Mirrors_feedback_bot")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-This bot can mirror all your links to Google Drive!
+I can mirror most of your links to Google Drive!
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
-        sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update, reply_markup)
+        sendMarkup('Not a authorized user, You Go Away!', context.bot, update, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update)
@@ -169,20 +169,20 @@ help_string_telegraph = f'''<br>
 <br>sites: <code>rarbg, 1337x, yts, etzv, tgx, torlock, piratebay, nyaasi, ettv</code><br><br>
 <b>/{BotCommands.StatusCommand}</b>: Shows a status of all the downloads
 <br><br>
-<b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
+<b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine I am hosted on
 '''
 
 help = telegraph.create_page(
-        title='Mirror-Leech-Bot Help',
+        title='SpideyJr. Help',
         content=help_string_telegraph,
     )["path"]
 
 help_string = f'''
-/{BotCommands.PingCommand}: Check how long it takes to Ping the Bot
+/{BotCommands.PingCommand}: Check how long it takes to Ping Me
 
-/{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
+/{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use me (Can only be invoked by Owner & Sudo)
 
-/{BotCommands.UnAuthorizeCommand}: Unauthorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
+/{BotCommands.UnAuthorizeCommand}: Unauthorize a chat or a user to use me (Can only be invoked by Owner & Sudo)
 
 /{BotCommands.AuthorizedUsersCommand}: Show authorized users (Only Owner & Sudo)
 
@@ -190,9 +190,9 @@ help_string = f'''
 
 /{BotCommands.RmSudoCommand}: Remove sudo users (Only Owner)
 
-/{BotCommands.RestartCommand}: Restart and update the bot
+/{BotCommands.RestartCommand}: Restart and update Me
 
-/{BotCommands.LogCommand}: Get a log file of the bot. Handy for getting crash reports
+/{BotCommands.LogCommand}: Get a log file of me. Handy for getting crash reports
 
 /{BotCommands.SpeedCommand}: Check Internet Speed of the Host
 
@@ -234,10 +234,10 @@ botcmds = [
         (f'{BotCommands.LeechSetCommand}','Leech settings'),
         (f'{BotCommands.SetThumbCommand}','Set thumbnail'),
         (f'{BotCommands.StatusCommand}','Get mirror status message'),
-        (f'{BotCommands.StatsCommand}','Bot usage stats'),
-        (f'{BotCommands.PingCommand}','Ping the bot'),
-        (f'{BotCommands.RestartCommand}','Restart the bot'),
-        (f'{BotCommands.LogCommand}','Get the bot Log'),
+        (f'{BotCommands.StatsCommand}','Mine usage stats'),
+        (f'{BotCommands.PingCommand}','Ping me'),
+        (f'{BotCommands.RestartCommand}','Restart me'),
+        (f'{BotCommands.LogCommand}','Get my Log'),
         (f'{BotCommands.HelpCommand}','Get detailed help')
     ]
 
@@ -279,7 +279,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("Bot Started!")
+    LOGGER.info("Good Morning!")
     signal.signal(signal.SIGINT, fs_utils.exit_clean_up)
     if rss_session is not None:
         rss_session.start()

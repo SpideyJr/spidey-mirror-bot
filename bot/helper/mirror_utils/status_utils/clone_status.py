@@ -1,4 +1,5 @@
 # Implement By - @anasty17 (https://github.com/SlamDevs/slam-mirrorbot/commit/80d33430715b4296cd253f62cefc089a81937ebf)
+# Modified a Bit by @Groot54
 # (c) https://github.com/SlamDevs/slam-mirrorbot
 # All rights reserved
 

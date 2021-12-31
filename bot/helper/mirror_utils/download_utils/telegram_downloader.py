@@ -110,7 +110,7 @@ class TelegramDownloadHelper(DownloadHelper):
                     smsg, button = gd.drive_list(name, True, True)
                     del gd
                     if smsg:
-                        msg = "File/Folder is already available in Drive.\nHere are the search results:"
+                        msg = "File/Folder is already available in Drive.\nHere is the list:"
                         return sendMarkup(msg, self.__listener.bot, self.__listener.update, button)
                 self.__onDownloadStart(name, media.file_size, media.file_id)
                 LOGGER.info(f'Downloading Telegram file with id: {media.file_id}')
